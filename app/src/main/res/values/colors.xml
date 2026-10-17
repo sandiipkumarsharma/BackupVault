@@ -1,0 +1,12 @@
+<resources>
+    <color name="brand">#2563EB</color>
+    <color name="brand_dark">#1E1B4B</color>
+    <color name="accent">#16A34A</color>
+    <color name="warn">#DC2626</color>
+    <color name="tile_contacts">#2563EB</color>
+    <color name="tile_sms">#16A34A</color>
+    <color name="tile_calls">#EA580C</color>
+    <color name="tile_calendar">#9333EA</color>
+    <color name="tile_apps">#0891B2</color>
+    <color name="tile_auto">#CA8A04</color>
+</resources>

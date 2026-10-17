@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.CardView.Elevated"
+    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_margin="6dp"
+    app:cardCornerRadius="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+        <TextView android:id="@+id/emoji" android:layout_width="52dp" android:layout_height="52dp" android:gravity="center"
+            android:textSize="26sp" android:background="@drawable/bg_tile_icon"/>
+        <TextView android:id="@+id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium" android:textStyle="bold"/>
+        <TextView android:id="@+id/count" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+        <TextView android:id="@+id/last" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBodySmall" android:alpha="0.65" android:maxLines="2"/>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
