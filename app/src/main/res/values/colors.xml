@@ -9,4 +9,10 @@
     <color name="tile_calendar">#9333EA</color>
     <color name="tile_apps">#0891B2</color>
     <color name="tile_auto">#CA8A04</color>
+    <color name="cat_otp">#16A34A</color>
+    <color name="cat_bank">#2563EB</color>
+    <color name="cat_courier">#EA580C</color>
+    <color name="cat_other">#64748B</color>
+    <color name="recent_bg">#FFF7E6</color>
+    <color name="recent_stroke">#F59E0B</color>
 </resources>

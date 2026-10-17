@@ -160,6 +160,8 @@ class MainActivity : BaseActivity() {
     private data class Tile(val emoji: String, val title: String, val color: Int, val open: () -> Unit, val count: () -> String, val last: () -> String)
 
     private fun tiles() = listOf(
+        Tile("📬", "SMS Timeline", R.color.tile_sms, { startActivity(Intent(this, SmsTimelineActivity::class.java)) },
+            { if (has(Manifest.permission.READ_SMS)) "OTP · Bank · Courier" else "Tap to allow" }, { "Today's SMS, newest first" }),
         Tile("👤", "Contacts", R.color.tile_contacts, { open(Kind.CONTACTS) },
             { if (has(Manifest.permission.READ_CONTACTS)) "${ContactsKit.count(this)} contacts" else "Tap to allow" }, { ago(Prefs.lastBackup(this, Kind.CONTACTS)) }),
         Tile("💬", "Messages", R.color.tile_sms, { open(Kind.SMS) },

@@ -73,6 +73,7 @@ class SectionActivity : BaseActivity() {
                 content.note("Restore: tap a .vcf backup below → ‘Import into phone’. Your Contacts app adds them (choose Phone or Google account).")
             }
             Kind.SMS -> {
+                content.button("📬  SMS Timeline (today first, OTP · Bank · Courier)") { startActivity(Intent(this, SmsTimelineActivity::class.java)) }
                 if (SmsKit.isDefault(this)) {
                     content.button("↩️  Switch back to my messages app", primary = true) { startActivity(SmsKit.restoreDefaultIntent(this)) }
                     content.note("Backup Vault is your SMS app right now (needed only for restore). Please switch back to your usual messages app.")

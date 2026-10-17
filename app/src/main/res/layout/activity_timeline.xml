@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+        android:background="@color/brand_dark" app:title="SMS Timeline" app:subtitle="Date-wise · newest first"
+        app:titleTextColor="#FFFFFF" app:subtitleTextColor="#CCFFFFFF"
+        app:navigationIcon="?attr/homeAsUpIndicator" app:navigationIconTint="#FFFFFF"/>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+        android:background="@color/brand_dark" android:paddingStart="12dp" android:paddingEnd="12dp" android:paddingBottom="12dp">
+        <LinearLayout android:id="@+id/boxToday" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+            <TextView android:id="@+id/statToday" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Today" android:textColor="#CCFFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/boxRecent" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+            <TextView android:id="@+id/statRecent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#FCD34D" android:textSize="24sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Last 2 hours" android:textColor="#CCFFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/boxImportant" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+            <TextView android:id="@+id/statImportant" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="#86EFAC" android:textSize="24sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Important today" android:textColor="#CCFFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginStart="12dp" android:layout_marginEnd="12dp" android:layout_marginTop="10dp"
+        android:hint="Search all SMS (sender, OTP, AWB, amount…)" app:endIconMode="clear_text">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/search"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:imeOptions="actionSearch"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none"
+        android:paddingStart="8dp" android:paddingEnd="8dp" android:clipToPadding="false">
+        <com.google.android.material.chip.ChipGroup android:id="@+id/filters" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            app:singleSelection="true" app:selectionRequired="true" app:singleLine="true">
+            <com.google.android.material.chip.Chip android:id="@+id/fAll" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="All" android:checked="true"/>
+            <com.google.android.material.chip.Chip android:id="@+id/fImportant" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ Important"/>
+            <com.google.android.material.chip.Chip android:id="@+id/fOtp" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔑 OTP"/>
+            <com.google.android.material.chip.Chip android:id="@+id/fBank" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💰 Bank"/>
+            <com.google.android.material.chip.Chip android:id="@+id/fCourier" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📦 Courier"/>
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:scrollbars="none"
+        android:paddingStart="8dp" android:paddingEnd="8dp" android:clipToPadding="false">
+        <com.google.android.material.chip.ChipGroup android:id="@+id/days" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            app:singleSelection="true" app:singleLine="true"/>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/list"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:clipToPadding="false" android:paddingBottom="24dp"/>
+</LinearLayout>

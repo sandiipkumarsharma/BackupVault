@@ -30,7 +30,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
+        <activity android:name=".SmsTimelineActivity" android:exported="true" android:label="SMS Timeline"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".SectionActivity" android:exported="false" />
         <activity android:name=".DuplicatesActivity" android:exported="false" />
         <activity android:name=".AppsActivity" android:exported="false" />

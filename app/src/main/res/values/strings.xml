@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Backup Vault</string>
+    <string name="sc_timeline">SMS Timeline</string>
+    <string name="sc_timeline_long">Today\'s SMS · OTP · Bank · Courier</string>
 </resources>
