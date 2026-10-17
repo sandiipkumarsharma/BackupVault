@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/theme" android:title="🎨  Background &amp; colours"/>
+    <item android:id="@+id/clearOtp" android:title="🧹  Clear all OTP messages"/>
+    <item android:id="@+id/clearOffers" android:title="🏷  Clear all offer / promo SMS"/>
+    <item android:id="@+id/clearAll" android:title="🗑  Clear whole inbox"/>
+    <item android:id="@+id/backToApp" android:title="↩️  Switch back to my messages app"/>
+</menu>

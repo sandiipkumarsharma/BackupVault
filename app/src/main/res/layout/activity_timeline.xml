@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/bgImage" android:layout_width="match_parent" android:layout_height="match_parent"
+        android:scaleType="centerCrop" android:visibility="gone"/>
+    <View android:id="@+id/bgShade" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone"/>
+<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
         android:background="@color/brand_dark" app:title="SMS Timeline" app:subtitle="Date-wise · newest first"
@@ -28,7 +32,7 @@
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginStart="12dp" android:layout_marginEnd="12dp" android:layout_marginTop="10dp"
-        android:hint="Search all SMS (sender, OTP, AWB, amount…)" app:endIconMode="clear_text">
+        android:id="@+id/searchBox" android:hint="Search all SMS (sender, OTP, AWB, amount…)" app:endIconMode="clear_text">
         <com.google.android.material.textfield.TextInputEditText android:id="@+id/search"
             android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:imeOptions="actionSearch"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,6 +46,7 @@
             <com.google.android.material.chip.Chip android:id="@+id/fOtp" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔑 OTP"/>
             <com.google.android.material.chip.Chip android:id="@+id/fBank" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💰 Bank"/>
             <com.google.android.material.chip.Chip android:id="@+id/fCourier" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📦 Courier"/>
+            <com.google.android.material.chip.Chip android:id="@+id/fOffers" style="@style/Widget.Material3.Chip.Filter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏷 Offers"/>
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
 
@@ -55,3 +60,4 @@
         android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
         android:clipToPadding="false" android:paddingBottom="24dp"/>
 </LinearLayout>
+</FrameLayout>

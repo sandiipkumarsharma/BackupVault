@@ -2,7 +2,7 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut android:shortcutId="timeline" android:enabled="true"
         android:shortcutShortLabel="@string/sc_timeline" android:shortcutLongLabel="@string/sc_timeline_long"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_sms">
         <intent android:action="android.intent.action.VIEW"
             android:targetPackage="com.sandip.backupvault"
             android:targetClass="com.sandip.backupvault.SmsTimelineActivity" />

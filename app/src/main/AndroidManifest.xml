@@ -32,8 +32,16 @@
             </intent-filter>
             <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".SmsTimelineActivity" android:exported="true" android:label="SMS Timeline"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- Own launcher icon: "SMS Timeline" appears as a separate app icon -->
+        <activity android:name=".SmsTimelineActivity" android:exported="true"
+            android:label="@string/sc_timeline" android:icon="@mipmap/ic_sms" android:roundIcon="@mipmap/ic_sms"
+            android:taskAffinity="com.sandip.backupvault.timeline"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".SectionActivity" android:exported="false" />
         <activity android:name=".DuplicatesActivity" android:exported="false" />
         <activity android:name=".AppsActivity" android:exported="false" />
