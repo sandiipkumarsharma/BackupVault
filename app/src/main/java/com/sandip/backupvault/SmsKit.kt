@@ -150,7 +150,7 @@ class SmsDeliverReceiver : BroadcastReceiver() {
         nm.createNotificationChannel(NotificationChannel("sms", "Messages received during restore", NotificationManager.IMPORTANCE_HIGH))
         nm.notify(from.hashCode(), NotificationCompat.Builder(c, "sms").setSmallIcon(android.R.drawable.stat_notify_chat)
             .setContentTitle("SMS from $from").setContentText(body)
-            .setStyle(NotificationCompat.BigTextStyle().bigText("$body\n\nSaved. Switch back to your messages app in Backup Vault → Messages."))
+            .setStyle(NotificationCompat.BigTextStyle().bigText("$body\n\nSaved. Open ${c.getString(R.string.app_name)} and switch back to your messages app."))
             .setAutoCancel(true).build())
     }
 }
@@ -173,7 +173,7 @@ class ComposeSmsActivity : Activity() {
             try { startActivity(Intent(intent.action, intent.data).setPackage(prev).putExtras(intent.extras ?: Bundle())); finish(); return } catch (_: Exception) {}
         }
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(48, 96, 48, 48) }
-        box.addView(TextView(this).apply { textSize = 18f; text = "Backup Vault is not a messaging app.\n\nIt is your SMS app only while restoring a backup. Please switch back to your normal messages app." })
+        box.addView(TextView(this).apply { textSize = 18f; text = "${getString(R.string.app_name)} is not a messaging app.\n\nIt is your SMS app only for a moment while restoring or clearing messages. Please switch back to your normal messages app." })
         box.addView(MaterialButton(this).apply {
             text = "Choose messages app"
             setOnClickListener { startActivity(SmsKit.restoreDefaultIntent(this@ComposeSmsActivity)); finish() }

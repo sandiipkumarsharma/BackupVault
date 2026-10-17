@@ -129,7 +129,7 @@ object SmsCleaner {
     }
 
     fun delete(c: Context, which: String, p: Progress): Int {
-        if (!SmsKit.isDefault(c)) error("Backup Vault must be the SMS app to delete messages")
+        if (!SmsKit.isDefault(c)) error("${c.getString(R.string.app_name)} must be the SMS app to delete messages")
         val list = ids(c, which)
         var n = 0
         list.chunked(200).forEach { chunk ->
@@ -185,7 +185,7 @@ class SmsTimelineActivity : BaseActivity() {
     private val smsRole = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val w = pendingClear; pendingClear = null
         if (w != null && SmsKit.isDefault(this)) runClear(w)
-        else if (w != null) info("Not changed", "Deleting needs Backup Vault as the SMS app for a moment. Nothing was deleted.")
+        else if (w != null) info("Not changed", "Deleting needs ${getString(R.string.app_name)} as the SMS app for a moment. Nothing was deleted.")
     }
     private val photoPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         if (uri != null) {
@@ -414,7 +414,7 @@ class SmsTimelineActivity : BaseActivity() {
             box.addView(TextView(this).apply {
                 textSize = 15f
                 text = "Delete $n $what?" + (if (which == "ALL") "\n\n⚠️ This empties your whole inbox." else "") +
-                    "\n\nAndroid lets only the default SMS app delete messages, so Backup Vault becomes the SMS app for a moment — you switch back right after."
+                    "\n\nAndroid lets only the default SMS app delete messages, so ${getString(R.string.app_name)} becomes the SMS app for a moment — you switch back right after."
             })
             val backup = MaterialCheckBox(this).apply { text = "Save a backup first (recommended)"; isChecked = true }
             box.addView(backup)

@@ -12,6 +12,16 @@ android {
         versionCode = 3
         versionName = "1.2"
     }
+    flavorDimensions += "app"
+    productFlavors {
+        create("vault") { dimension = "app" }
+        create("timeline") {
+            dimension = "app"
+            applicationId = "com.sandip.smstimeline"
+            versionCode = 1
+            versionName = "1.0"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
