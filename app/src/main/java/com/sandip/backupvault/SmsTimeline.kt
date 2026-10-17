@@ -208,7 +208,7 @@ class SmsTimelineActivity : BaseActivity() {
                     R.id.clearOtp -> askClear("OTP")
                     R.id.clearOffers -> askClear("PROMO")
                     R.id.clearAll -> askClear("ALL")
-                    R.id.backToApp -> startActivity(SmsKit.restoreDefaultIntent(this))
+                    R.id.backToApp -> startActivity(SmsKit.restoreDefaultIntent(this@SmsTimelineActivity))
                 }
                 true
             }
